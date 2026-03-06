@@ -1,0 +1,26 @@
+---------How to run the code and Structure of the program---------
+
+1) Folder Structure :-
+calculator_project
+│
+│ cal.py
+│
+└── templates
+      │ index.html
+The templates folder is very important for Flask.
+
+2) Open Terminal / Command Prompt :-
+cd calculator_project
+
+3) Install Flask (if not installed) :-
+pip install flask
+
+4) Run the Python file :-
+python cal.py
+
+5) Open the Website :-
+After running, you will see something like:
+Running on http://127.0.0.1:5000
+Open your browser and go to:
+http://127.0.0.1:5000
+Your calculator website will open.
