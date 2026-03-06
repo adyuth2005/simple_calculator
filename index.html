@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(200deg,#348edc92,#40c046);
+    height:100vh;
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+h1{
+    color:#ffffff;
+    margin-top:40px;
+    text-align:center;
+    font-family: 'Dancing Script', cursive;
+    font-size:50px;
+
+    text-shadow:
+        0 0 5px #4d5fff,
+        0 0 10px #4d5fff,
+        0 0 20px #4d5fff,
+        0 0 40px #4d5fff,
+        0 0 80px #4d5fff;
+}
+.calculator{
+    background:#121212;
+    padding:20px;
+    border-radius:15px;
+    width:260px;
+    box-shadow:0px 8px 25px rgba(244, 100, 0, 0.767);
+}
+
+.display{
+    width:90%;
+    height:50px;
+    margin-bottom:15px;
+    font-size:22px;
+    text-align:right;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    box-shadow:  0px 10px 10px #28a5a7;
+}
+
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+    
+}
+
+button{
+    padding:15px;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    box-shadow: #28a5a7 0px 4px 10px;
+}
+
+.number{
+    background:#aa4d3aba;
+    color:white;
+    text-shadow: #16b4c2 0px 2px 5px;
+}
+
+.operator{
+    background:#ff9500;
+    color:white;
+    box-shadow: #ff9500 0px 4px 10px;
+    text-shadow: #ff9500 0px 2px 5px;
+}
+
+.equal{
+    background:#28a745;
+    color:white;
+    grid-column:span 2;
+    box-shadow: #28a745 0px 4px 10px;
+    text-shadow: #28a745 0px 2px 5px;
+}
+
+.clear{
+    background:#dc3545;
+    color:white;
+    box-shadow: #dc3545 0px 4px 10px;
+    grid-row:span 2;
+    text-shadow: #dc3545 0px 2px 5px;
+}
+
+.backspace{
+    background:#6c757d;
+    color:white;
+    box-shadow: #6c757d 0px 4px 10px;
+    text-shadow: #6c757d 0px 2px 5px;
+}
+
+button:hover{
+    opacity:0.5;
+}
+
+</style>
+
+<script>
+
+function insert(value){
+    document.getElementById("display").value += value;
+}
+
+function clearDisplay(){
+    document.getElementById("display").value = "";
+}
+
+function backspace(){
+    let display = document.getElementById("display");
+    display.value = display.value.slice(0,-1);
+}
+
+function calculate(){
+    let expression = document.getElementById("display").value;
+    document.getElementById("display").value = eval(expression);
+}
+
+</script>
+
+</head>
+
+<body>
+
+    <h1>Simple Calculator</h1>
+
+<div class="calculator">
+
+<input type="text" id="display" class="display" readonly>
+
+<div class="buttons">
+
+<button class="operator" onclick="insert('/')">/</button>
+<button class="operator" onclick="insert('*')">*</button>
+<button class="operator" onclick="insert('-')">-</button>
+<button class="operator" onclick="insert('+')">+</button>
+
+<button class="number" onclick="insert('7')">7</button>
+<button class="number" onclick="insert('8')">8</button>
+<button class="number" onclick="insert('9')">9</button>
+<button class="backspace" onclick="backspace()">⌫</button>
+
+<button class="number" onclick="insert('4')">4</button>
+<button class="number" onclick="insert('5')">5</button>
+<button class="number" onclick="insert('6')">6</button>
+<button class="clear" onclick="clearDisplay()">C</button>
+
+<button class="number" onclick="insert('1')">1</button>
+<button class="number" onclick="insert('2')">2</button>
+<button class="number" onclick="insert('3')">3</button>
+
+<button class="number" onclick="insert('0')">0</button>
+<button class="number" onclick="insert('.')">.</button>
+<button class="equal" onclick="calculate()">=</button>
+
+</div>
+
+</div>
+
+</body>
+</html>
